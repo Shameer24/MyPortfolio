@@ -5,17 +5,10 @@ import {Links} from '../Navbar/Navbar';
 import DrawerItem from './DrawerItem';
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import gsap from 'gsap'
-import {ColorModeContext} from '../../../pages/_app';
-import {useContext} from 'react';
-import Logo from '../Logo/Logo';
 
 
 const CustomDrawer = ({isOpen, toggleDrawer} : ICustomDrawer) => {
     gsap.registerPlugin(ScrollToPlugin);
-    const colorMode = useContext(ColorModeContext)
-    const color = colorMode.mode === 'light'
-        ? 'black'
-        : 'white'
     return (
 
         <Drawer anchor={'right'} open={isOpen} onClose={() => toggleDrawer(false)}>
@@ -30,16 +23,11 @@ const CustomDrawer = ({isOpen, toggleDrawer} : ICustomDrawer) => {
                 margin: '0 auto'
             }}>
 
-                <Logo color={color} toggleDrawer={toggleDrawer} colorMode={colorMode}/>
-
                 <IconButton
                     onClick={() => toggleDrawer(false)}
                     size="large"
                     sx={{
                     padding: 0,
-                    ":hover": {
-                        color
-                    }
                 }}
                     edge="start"
                     aria-label="menu">
@@ -60,8 +48,6 @@ const CustomDrawer = ({isOpen, toggleDrawer} : ICustomDrawer) => {
             }}>
                 {Links.map(link => {
                     return <DrawerItem
-                        isToggleTheme={link
-                        ?.isToggleTheme}
                         toggleDrawer={toggleDrawer}
                         key={link.text}
                         url={link.url}

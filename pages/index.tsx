@@ -6,20 +6,14 @@ import Perks from "../src/components/Sections/Perks/Perks";
 import Projects from "../src/components/Sections/Projects/Projects";
 import CTA from "../src/components/Sections/CallToAction/CTA";
 import { useEffect, useRef, useState } from "react";
-import CursorAnimation from "../src/gsap/CursorAnimation";
 import About from "../src/components/Sections/About/About";
 import Layout from "../Layout/Layout";
-import GLOBE from "vanta/dist/vanta.globe.min";
+import NET from "vanta/dist/vanta.net.min";
 import * as THREE from "three";
+import Footer from "../src/components/Footer/Footer";
+
 
 const Home: NextPage = ({ projectsArray, iconsArray }: any) => {
-  const ball = useRef();
-
-  useEffect(() => {
-    if (ball && ball.current) {
-      CursorAnimation(ball.current);
-    }
-  }, []);
 
   const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
@@ -27,7 +21,7 @@ const Home: NextPage = ({ projectsArray, iconsArray }: any) => {
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
-        GLOBE({
+        NET({
           el: vantaRef.current,
           THREE: THREE,
           mouseControls: true,
@@ -37,9 +31,10 @@ const Home: NextPage = ({ projectsArray, iconsArray }: any) => {
           minWidth: 200.0,
           scale: 1.0,
           scaleMobile: 1.0,
-          color: 0xf0ff,
-          color2: 0x8e5f7,
+          color: 0xa1ff,
           backgroundColor: 0x0,
+          maxDistance: 22.0,
+          spacing: 19.0,
         })
       );
     }
@@ -51,30 +46,22 @@ const Home: NextPage = ({ projectsArray, iconsArray }: any) => {
   return (
     <Layout desc={`Shameer Portfolio`} title="Shameeer's Portfolio">
       <div ref={vantaRef} id="vanta"></div>
-      <Box
-        sx={{
-          margin: "0 auto",
-          color: "white",
-        }}
-      >
-        <Hero />
-        <Perks />
-        <Experience iconsArray={iconsArray} />
-        <Projects projectsArray={projectsArray} />
-        <About />
-        <CTA />
-
+      {
+        vantaEffect ? <>
         <Box
-          ref={ball}
           sx={{
-            display: {
-              xs: "none",
-              md: "block",
-            },
+            margin: "0 auto",
+            color: "white",
           }}
-          className="ball"
-        ></Box>
-      </Box>
+        >
+          <Hero />
+          <Experience iconsArray={iconsArray} />
+          <Projects projectsArray={projectsArray} />
+          <About />
+          <CTA />
+          <Footer />
+        </Box></> :  <></>
+      }
     </Layout>
   );
 };
@@ -91,6 +78,7 @@ export async function getStaticProps() {
     // first, grab our Contentful keys from the .env file
     const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
     const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
+
     // then, send a request to Contentful (using the same URL from GraphiQL)
     const res = await fetch(
       `https://graphql.contentful.com/content/v1/spaces/${space}`,
@@ -104,7 +92,7 @@ export async function getStaticProps() {
         body: JSON.stringify({
           // all requests start with "query: ", so we'll stringify that for convenience
           query: `
-                query {
+                {
                   projectCollection {
                     items {
                       title
@@ -116,10 +104,21 @@ export async function getStaticProps() {
                       }
                     }
                   }
-                }`,
+                  iconsCollection {
+                    items {
+                      svg{
+                        url
+                      }
+                      title
+                      type
+                    }
+                  }
+                }
+                  `,
         }),
       }
     );
+
     // grab the data from our response
     const { data } = await res.json();
     console.log(data);

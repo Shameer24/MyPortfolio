@@ -5,7 +5,7 @@ import {IToolCard} from '../../../Types/Types';
 import {centeredStyles} from '../Perks/Perks';
 import {useEffect} from 'react';
 import gsap from 'gsap'
-const ToolCard = ({title, svg, filter, className} : IToolCard) => {
+const ToolCard = ({title, src, filter, className} : IToolCard) => {
 
     useEffect(() => {
 
@@ -44,19 +44,13 @@ const ToolCard = ({title, svg, filter, className} : IToolCard) => {
                 }
             }}>
 
-                <Image
-                    
-                    alt='Icon'
-                    className={`${filter
-                    ? 'filter '
-                    : ''} icon`}
-                    width='100%'
-                    height='100%'
-                    src={`${svg}`}/>
+        <img alt='Project Image' className='img1' src={`${src}`}/>
+
             </Box>
             <Typography
                 variant='h3'
                 sx={{
+                    fontWeight : 500,
                 fontSize: {
                     xs: '.86em',
                     sm: '1em'

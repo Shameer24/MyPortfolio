@@ -24,20 +24,10 @@ export const Links = [
         text: 'Projects',
         Icon: AssignmentTurnedInIcon,
         url: '/'
-    }, {
-        text: 'Theme',
-        Icon: DarkModeIcon,
-        url: '/',
-        isToggleTheme: true
     }
 ]
 
 const Navbar = ({toggleDrawer,navbarSx} : INavbar) => {
-    const colorMode = useContext(ColorModeContext)
-    const color = colorMode.mode === 'light'
-        ? 'black'
-        : 'white';
-    const router= useRouter()
     return (
         <AppBar
             sx={{
@@ -53,30 +43,12 @@ const Navbar = ({toggleDrawer,navbarSx} : INavbar) => {
             <Container
                 sx={{
                 display: 'flex',
-                justifyContent: 'space-between',
+                justifyContent: 'end',
                 alignItems: 'center',
                 margin: '0 auto'
             }}
                 maxWidth="lg">
-
-                <Logo color={color} toggleDrawer={toggleDrawer} colorMode={colorMode}/>
-                <Button 
-                onClick={()=>router.push('/blog')}
-                sx={{mr:'1em',fontWeight:'500',':hover':{color:'#0092ff'},color:color}}>
-                    {/* <Typography> */}
-                    Blog
-                    {/* </Typography> */}
-                </Button>
                 <IconButton
-                    sx={{
-                    color,
-                    ':hover': {
-                        color
-                    },
-                    ":focus": {
-                        color
-                    }
-                }}
                     onClick={() => toggleDrawer()}
                     size="large"
                     edge="start"

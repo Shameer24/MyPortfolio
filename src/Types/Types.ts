@@ -38,7 +38,7 @@ export interface ICustomDrawer extends INavbar {
 }
 export interface IToolCard {
   title: string;
-  svg: string;
+  src: string;
   className?: string;
   filter?: boolean;
 }

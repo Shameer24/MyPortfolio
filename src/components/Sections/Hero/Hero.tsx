@@ -57,11 +57,11 @@ const Hero = () => {
                 textAlign: "left",
                 pt: "1em",
                 fontSize: {
-                  xs: ".9em",
-                  sm: "1em",
+                  xs: "1.0em",
+                  sm: "1.2em",
                 },
                 maxWidth: "570px",
-                fontWeight: "300",
+                fontWeight: "400",
               }}
             >
               Hi, my name is
@@ -113,10 +113,10 @@ const Hero = () => {
                   sm: "1em",
                 },
                 maxWidth: "570px",
-                fontWeight: "700",
+                fontWeight: "500",
               }}
             >
-              Call me Shameer. I enjoy creating websites and web/mobile apps,
+              Call me Shameer. I enjoy creating full stack applications and web/mobile apps,
               ones that suit your desires and needs using latest technologies
               and cleanest design patterns.
             </Typography>
@@ -130,28 +130,28 @@ const Hero = () => {
                 alignItems: "center",
               }}
             >
-                <Button
-                  className="b2"
-                  sx={{
-                    ...btnStyles,
-                    opacity: 0,
-                    height: "max-content",
-                    padding: "1em 1.5em",
-                    width: { xs: "100%", sm: "auto" },
-                    ":hover": {
-                      color: "#0092ff",
-                    },
-                  }}
-                  variant="text"
-                  onClick={() =>
-                    gsap.to(window, {
-                      duration: 2,
-                      scrollTo: `#ProjectSection`,
-                    })
-                  }
-                >
-                  <Typography fontSize="14px">View Projects</Typography>
-                </Button>
+              <Button
+                className="b2"
+                sx={{
+                  ...btnStyles,
+                  opacity: 0,
+                  height: "max-content",
+                  padding: "1em 1.5em",
+                  width: { xs: "100%", sm: "auto" },
+                  ":hover": {
+                    color: "#0092ff",
+                  },
+                }}
+                variant="text"
+                onClick={() =>
+                  gsap.to(window, {
+                    duration: 2,
+                    scrollTo: `#ProjectSection`,
+                  })
+                }
+              >
+                <Typography fontSize="14px">View Projects</Typography>
+              </Button>
               <a
                 href={`https://drive.google.com/drive/u/0/my-drive`}
                 rel="noreferrer"
@@ -231,7 +231,7 @@ const Hero = () => {
                   zIndex: "2",
                 }}
                 className="img1"
-                src={`https://ucarecdn.com/150b60a1-4ef3-4ec8-8f1a-d90a7ea26c85/-/cr`}
+                src={`https://i.ibb.co/hVJF3p5/PIC.jpg`}
                 alt="Personal Image"
               />
               <Box

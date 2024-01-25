@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import About from "../src/components/Sections/About/About";
 import Layout from "../Layout/Layout";
 import NET from "vanta/dist/vanta.net.min";
+import Image from "next/image";
 
 // const {NET} = require("vanta/dist/vanta.net.min");
 import * as THREE from "three";
@@ -46,6 +47,14 @@ const Home: NextPage = ({ projectsArray, iconsArray }: any) => {
   return (
     <Layout desc={`Shameer Portfolio`} title="Shameeer's Portfolio">
       <div ref={vantaRef} id="vanta"></div>
+      {/* <Image
+        src="/nextjs-github-pages/vercel.svg"
+        alt="Vercel Logo"
+        className="logo"
+        width={100}
+        height={24}
+        priority
+      /> */}
       {vantaEffect ? (
         <>
           <Box

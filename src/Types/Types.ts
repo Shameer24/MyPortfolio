@@ -43,6 +43,7 @@ export interface IToolCard {
   filter?: boolean;
 }
 export interface ISocialMedia extends IToolCard {
+  svg : string,
   color: string;
   href: string;
 }

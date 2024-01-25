@@ -9,12 +9,12 @@ import { useEffect, useRef, useState } from "react";
 import About from "../src/components/Sections/About/About";
 import Layout from "../Layout/Layout";
 import NET from "vanta/dist/vanta.net.min";
+
+// const {NET} = require("vanta/dist/vanta.net.min");
 import * as THREE from "three";
 import Footer from "../src/components/Footer/Footer";
 
-
 const Home: NextPage = ({ projectsArray, iconsArray }: any) => {
-
   const [vantaEffect, setVantaEffect] = useState(0);
   const vantaRef = useRef(null);
 
@@ -46,22 +46,25 @@ const Home: NextPage = ({ projectsArray, iconsArray }: any) => {
   return (
     <Layout desc={`Shameer Portfolio`} title="Shameeer's Portfolio">
       <div ref={vantaRef} id="vanta"></div>
-      {
-        vantaEffect ? <>
-        <Box
-          sx={{
-            margin: "0 auto",
-            color: "white",
-          }}
-        >
-          <Hero />
-          <Experience iconsArray={iconsArray} />
-          <Projects projectsArray={projectsArray} />
-          <About />
-          <CTA />
-          <Footer />
-        </Box></> :  <></>
-      }
+      {vantaEffect ? (
+        <>
+          <Box
+            sx={{
+              margin: "0 auto",
+              color: "white",
+            }}
+          >
+            <Hero />
+            <Experience iconsArray={iconsArray} />
+            <Projects projectsArray={projectsArray} />
+            <About />
+            <CTA />
+            <Footer />
+          </Box>
+        </>
+      ) : (
+        <>hello</>
+      )}
     </Layout>
   );
 };

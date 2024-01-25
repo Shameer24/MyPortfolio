@@ -116,9 +116,9 @@ const Hero = () => {
                 fontWeight: "500",
               }}
             >
-              Call me Shameer. I enjoy creating full stack applications and web/mobile apps,
-              ones that suit your desires and needs using latest technologies
-              and cleanest design patterns.
+              Call me Shameer. I enjoy creating full stack applications and
+              web/mobile apps, ones that suit your desires and needs using
+              latest technologies and cleanest design patterns.
             </Typography>
 
             <Box
@@ -153,7 +153,7 @@ const Hero = () => {
                 <Typography fontSize="14px">View Projects</Typography>
               </Button>
               <a
-                href={`https://drive.google.com/drive/u/0/my-drive`}
+                href={`https://drive.google.com/file/d/11ib2yrvbjt4uIBdUfAc1PpctzV9YtE45/view?usp=sharing`}
                 rel="noreferrer"
                 target="_blank"
               >

@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     outDir: ".out",
-    output : "export",
     basePath: "/MyPortfolio",
   reactStrictMode: true,
   swcMinify: true,

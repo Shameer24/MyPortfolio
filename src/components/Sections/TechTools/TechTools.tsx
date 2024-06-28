@@ -43,6 +43,7 @@ const TechTools = ({ iconsArray }: any) => {
     <>
       {" "}
       <Container
+        id="skills"
         maxWidth="lg"
         sx={{
             backgroundColor : "rgba(0,0,0,0.4)",

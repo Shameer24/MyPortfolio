@@ -9,6 +9,7 @@ import { ColorModeContext } from "../../../pages/_app";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import { useRouter } from "next/router";
+// import "./NavBar.css"
 
 export const Links = [
   {
@@ -32,17 +33,36 @@ const Navbar = ({ toggleDrawer, navbarSx }: INavbar) => {
   return (
     <AppBar
       sx={{
-        background: "transparent",
+        background: "black",
         boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
         py: ".45em",
         zIndex: "555",
+        backgroundBlendMode : "color",
         backdropFilter: "blur(1px)",
         position: "fixed",
-        ...navbarSx,
       }}
       position="static"
     >
       <Container
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Container>
+
+        </Container>
+        
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#ProjectSection">Projects</a>
+          <a href="/contact">Contact</a>
+          
+      </Container>
+
+      {/* <Container
         sx={{
           display: "flex",
           justifyContent: "end",
@@ -59,7 +79,7 @@ const Navbar = ({ toggleDrawer, navbarSx }: INavbar) => {
         >
           <MenuIcon />
         </IconButton>
-      </Container>
+      </Container> */}
     </AppBar>
   );
 };

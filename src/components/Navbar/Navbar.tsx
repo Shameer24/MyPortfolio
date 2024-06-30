@@ -9,7 +9,7 @@ import { ColorModeContext } from "../../../pages/_app";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import { useRouter } from "next/router";
-// import "./NavBar.css"
+import Link from "next/link";
 
 export const Links = [
   {
@@ -35,9 +35,9 @@ const Navbar = ({ toggleDrawer, navbarSx }: INavbar) => {
       sx={{
         background: "black",
         boxShadow: "rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
+        height: "60px",
         py: ".45em",
         zIndex: "555",
-        backgroundBlendMode : "color",
         backdropFilter: "blur(1px)",
         position: "fixed",
       }}
@@ -45,41 +45,31 @@ const Navbar = ({ toggleDrawer, navbarSx }: INavbar) => {
     >
       <Container
         sx={{
+          height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-end",
+          color: "white",
         }}
       >
-        <Container>
+        <Container>Logo</Container>
 
+        <Container className="px-0 flex justify-end">
+          <a className="mr-10" href="#hero">
+            Home
+          </a>
+          <a className="mr-10" href="#about">
+            About
+          </a>
+          <a className="mr-10" href="#skills">
+            Skills
+          </a>
+          <a className="mr-10" href="#ProjectSection">
+            Projects
+          </a>
+          <Link href="/contact">Contact</Link>
         </Container>
-        
-          <a href="#hero">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#ProjectSection">Projects</a>
-          <a href="/contact">Contact</a>
-          
       </Container>
-
-      {/* <Container
-        sx={{
-          display: "flex",
-          justifyContent: "end",
-          alignItems: "center",
-          margin: "0 auto",
-        }}
-        maxWidth="lg"
-      >
-        <IconButton
-          onClick={() => toggleDrawer()}
-          size="large"
-          edge="start"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
-      </Container> */}
     </AppBar>
   );
 };

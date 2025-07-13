@@ -42,35 +42,31 @@ const Hero = () => {
                 },
             })
 
-            tl.to(
-                ['.hero-intro', '.mainBox'],
-                { opacity: 0, y: '-100vh' },
-                0
-            )
-            .fromTo(
-                '.about-intro',
-                { opacity: 0 },
-                { opacity: 1, duration: 0.3, ease: 'power2.out' },
-                0
-            )
-            .fromTo(
-                '.about-intro h4',
-                { opacity: 0, y: 60 },
-                { opacity: 1, y: 0, ease: 'power2.out', duration: 0.5 },
-                0.1
-            )
-            .fromTo(
-                '.about-intro h5',
-                { opacity: 0, y: 60 },
-                { opacity: 1, y: 0, ease: 'power2.out', duration: 0.4 },
-                0.2
-            )
-            .fromTo(
-                '.about-intro p',
-                { opacity: 0, y: 60 },
-                { opacity: 1, y: 0, ease: 'power2.out', duration: 0.4 },
-                0.3
-            )
+            tl.to(['.hero-intro', '.mainBox'], { opacity: 0, y: '-100vh' }, 0)
+                .fromTo(
+                    '.about-intro',
+                    { opacity: 0 },
+                    { opacity: 1, duration: 0.3, ease: 'power2.out' },
+                    0
+                )
+                .fromTo(
+                    '.about-intro h4',
+                    { opacity: 0, y: 60 },
+                    { opacity: 1, y: 0, ease: 'power2.out', duration: 0.5 },
+                    0.1
+                )
+                .fromTo(
+                    '.about-intro h5',
+                    { opacity: 0, y: 60 },
+                    { opacity: 1, y: 0, ease: 'power2.out', duration: 0.4 },
+                    0.2
+                )
+                .fromTo(
+                    '.about-intro p',
+                    { opacity: 0, y: 60 },
+                    { opacity: 1, y: 0, ease: 'power2.out', duration: 0.4 },
+                    0.3
+                )
         })
 
         mm.add('(min-width: 900px)', () => {
@@ -87,30 +83,30 @@ const Hero = () => {
             })
 
             tl.to('.hero-intro', { opacity: 0, y: '-100vh' }, 0)
-            .fromTo(
-                '.about-intro',
-                { opacity: 0 },
-                { opacity: 1, duration: 0.3, ease: 'power2.out' },
-                0
-            )
-            .fromTo(
-                '.about-intro h4',
-                { opacity: 0, y: 60 },
-                { opacity: 1, y: 0, ease: 'power2.out', duration: 0.6 },
-                0.1
-            )
-            .fromTo(
-                '.about-intro h5',
-                { opacity: 0, y: 60 },
-                { opacity: 1, y: 0, ease: 'power2.out', duration: 0.6 },
-                0.2
-            )
-            .fromTo(
-                '.about-intro p',
-                { opacity: 0, y: 60 },
-                { opacity: 1, y: 0, ease: 'power2.out', duration: 0.6 },
-                0.3
-            )
+                .fromTo(
+                    '.about-intro',
+                    { opacity: 0 },
+                    { opacity: 1, duration: 0.3, ease: 'power2.out' },
+                    0
+                )
+                .fromTo(
+                    '.about-intro h4',
+                    { opacity: 0, y: 60 },
+                    { opacity: 1, y: 0, ease: 'power2.out', duration: 0.6 },
+                    0.1
+                )
+                .fromTo(
+                    '.about-intro h5',
+                    { opacity: 0, y: 60 },
+                    { opacity: 1, y: 0, ease: 'power2.out', duration: 0.6 },
+                    0.2
+                )
+                .fromTo(
+                    '.about-intro p',
+                    { opacity: 0, y: 60 },
+                    { opacity: 1, y: 0, ease: 'power2.out', duration: 0.6 },
+                    0.3
+                )
         })
 
         return () => {
@@ -199,7 +195,7 @@ const Hero = () => {
                     </Box>
                     <Box
                         // ref={ref}
-                        id= "hero-intro"
+                        id="hero-intro"
                         className="hero-intro"
                         sx={{
                             position: 'absolute',
@@ -210,7 +206,7 @@ const Hero = () => {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'flex-start',
-                            pl: {xs : '0.3em', sm: '2em', md: '3em'},
+                            pl: { xs: '0.3em', sm: '2em', md: '3em' },
                             pt: { xs: '4em', sm: '0em' },
                             zIndex: 1,
                         }}
@@ -234,7 +230,7 @@ const Hero = () => {
                                 sx={{
                                     position: 'absolute',
                                     textAlign: 'left',
-                                    left: { xs: '0em', sm: '0em', md : '2em' },
+                                    left: { xs: '0em', sm: '0em', md: '2em' },
                                     top: {
                                         xs: 0,
                                         sm: '12%',
@@ -371,7 +367,7 @@ const Hero = () => {
                                                 </Typography>
                                             </Button>
                                             <a
-                                                href={`https://drive.google.com/file/d/11ib2yrvbjt4uIBdUfAc1PpctzV9YtE45/view?usp=sharing`}
+                                                href={`https://drive.google.com/file/d/1cirgDDtkF_7YOBdxX5rKzDt4cXK1wsja/view?usp=sharing`}
                                                 rel="noreferrer"
                                                 target="_blank"
                                             >
@@ -420,14 +416,22 @@ const Hero = () => {
                             px: { xs: '2em', sm: '3em' },
                         }}
                     >
-                        <Box sx={{ width: {xs : '100%', sm: '100%', md : '60%'}}}>
+                        <Box
+                            sx={{
+                                width: { xs: '100%', sm: '100%', md: '60%' },
+                            }}
+                        >
                             <Typography
                                 variant="h4"
                                 fontWeight="700"
                                 sx={{
                                     color: '#fff',
                                     mb: '1.2em',
-                                    textAlign: {xs : 'center',sm : 'center', md : 'left'},
+                                    textAlign: {
+                                        xs: 'center',
+                                        sm: 'center',
+                                        md: 'left',
+                                    },
                                     fontSize: { xs: '1.6rem', sm: '2rem' },
                                     display: 'inline-block',
                                     pb: '.2em',
@@ -448,8 +452,8 @@ const Hero = () => {
                                     lineHeight: 1.6,
                                 }}
                             >
-                                Hi, I'm Mohamed Shameer — a Builder, Explorer &
-                                Developer
+                                Hi, I&apos;m Mohamed Shameer — a Builder,
+                                Explorer & Developer
                             </Typography>
                             <Typography
                                 ref={textRef}
@@ -462,23 +466,23 @@ const Hero = () => {
                                     lineHeight: 1.8,
                                 }}
                             >
-                                I'm a passionate full-stack developer with a
-                                keen eye for clean UI, seamless UX, and scalable
-                                backend architecture. My journey into tech was
-                                born from curiosity and shaped by formal
-                                education in Computer Science, where I honed my
-                                skills in building end-to-end digital
+                                I&apos;m a passionate full-stack developer with
+                                a keen eye for clean UI, seamless UX, and
+                                scalable backend architecture. My journey into
+                                tech was born from curiosity and shaped by
+                                formal education in Computer Science, where I
+                                honed my skills in building end-to-end digital
                                 experiences.
                                 <br />
                                 <br />
-                                Whether it's collaborating with research teams
-                                or agile product squads, I thrive on
+                                Whether it&apos;s collaborating with research
+                                teams or agile product squads, I thrive on
                                 transforming complex problems into elegant
                                 software solutions. I enjoy mentoring peers,
                                 exploring new tech stacks, and turning code into
-                                impactful products. When I’m not coding, I’m
-                                probably brainstorming my next big idea or
-                                optimizing an old one.
+                                impactful products. When I&apos;m not coding,
+                                I&apos;m probably brainstorming my next big idea
+                                or optimizing an old one.
                             </Typography>
                         </Box>
                     </Box>

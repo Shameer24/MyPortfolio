@@ -48,7 +48,7 @@ function Footer() {
                         About Me
                     </Typography>
                     <Typography variant="body2" sx={{ color: '#aaa' }}>
-                        I'm Mohamed Shameer, a passionate Full Stack Developer
+                        I&apos;m Mohamed Shameer, a passionate Full Stack Developer
                         specializing in building elegant and performant web apps
                         with React, TypeScript, and modern tools.
                     </Typography>

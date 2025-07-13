@@ -5,10 +5,7 @@ import {Box, Button, TextField, Typography} from '@mui/material'
 const Index = () => {
     return (
         <Layout
-            navbarSx={{
-            opacity: 1,
-            // background: '#000000eb',
-        }}
+            
             title='Vito Medlej | Blog '>
             <main>
 

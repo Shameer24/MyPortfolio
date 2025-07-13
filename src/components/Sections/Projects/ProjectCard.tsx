@@ -1,7 +1,5 @@
-import {Box, Typography, Button} from '@mui/material';
-import {useEffect, useRef, useState} from 'react';
-import {IProjectCard} from '../../../Types/Types';
-import {btnStyles} from '../Hero/Hero';
+import { Box, Typography, Button } from '@mui/material'
+import { IProjectCard } from '../../../Types/Types'
 
 const ProjectCard = ({
     isReversed,
@@ -9,152 +7,174 @@ const ProjectCard = ({
     className,
     repoUrl,
     title,
-    description
-} : IProjectCard) => {
-
-    const ref = useRef(null);
-
-    const [cursorPosition,
-        setCursorPosition] = useState({y: 0, x: 0})
-    const [elementSize,
-        setElementSize] = useState({x: 0, y: 0})
-    const onMouseMove = (e : any) => {
-        setCursorPosition({y: e.screenY, x: e.screenX})
-    }
-
-    useEffect(() => {
-        if (ref && ref.current) 
-            setElementSize({x: ref.current['offsetWidth'], y: ref.current['offsetHeight']});
-        }
-    , []);
-
-    const rotation = `rotateY(${ (elementSize.x / 2 - cursorPosition.x) / 25}deg) rotateX(${ (elementSize.y / 2 - cursorPosition.y) / 30}deg)`
-
+    description,
+    organization,
+    techStack,
+}: IProjectCard) => {
     return (
         <Box
             className={className}
             sx={{
-            display: 'flex',
-            my: {
-                xs: '0em',
-                sm: '1em',
-                md: '3em'
-            },
-            flexDirection: {
-                xs: 'column',
-                md: `${isReversed
-                    ? 'row'
-                    : 'row-reverse'}`
-            },
-            alignItems: 'center',
-            transform: isReversed
-                ? 'translateX(-150%)'
-                : 'translateX(150%)'
-        }}>
-            <Box
-                sx={{
-                width: {
-                    xs: '100%',
-                    sm: '600px'
-                },
-                minWidth: {
-                    xs: 'auto',
-                    sm: '250px',
-                    md: '390px'
-                },
-                height: '400px',
-                position: 'relative'
-            }}>
-
-                <img alt='Project Image' className='img1' src={`${img}`}/>
-            </Box>
-            <Box
-                ref={ref}
-                onMouseMove={onMouseMove}
-                sx={{
-                transition: ' all .1s ease',
-                '&:hover': {
-                    transform: {
-                        xs: ` translateY(-25%)`,
-                        md: `${rotation} ${isReversed
-                            ? 'translateX(-25%)'
-                            : 'translateX(25%)'}`
-                    }
-                },
-                borderRadius: '6px',
-                width: {
-                    xs: '94%',
-                    md: 'auto'
-                },
-                position: "relative",
-                transform: {
-                    xs: 'translateY(-25%)',
-                    md: `${isReversed
-                        ? 'translateX(-25%)'
-                        : 'translateX(25%)'}`
-                },
-                maxWidth: '600px',
-                padding: '2em 1.5em',
-                textAlign: 'left',
-                boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
-                background: 'white',
-                color: 'black',
                 display: 'flex',
-                flexDirection: 'row-reverse',
-                alignItems: 'center'
-            }}>
-
-                <Box >
-
-                    <Typography
-                        color='black'
-                        sx={{
-                        fontSize: '1.4em',
-                        fontWeight: '500',
-                        pb: '.25em'
-                    }}>
-                        {title}
-                    </Typography>
-                    <Typography
-                        color='black'
-                        variant='h3'
-                        sx={{
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                position: 'relative',
+                minWidth: { xs: '100%', sm: '75%', md: '47%' },
+                minHeight: { xs: '300px', sm: '350px', md: '430px' },
+                overflow: 'hidden',
+                borderRadius: '12px',
+                margin: 'auto',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+                transform: isReversed
+                    ? 'translateX(-200%)'
+                    : 'translateX(200%)',
+                '&:hover .overlay-content': {
+                    transform: 'translateY(0%)',
+                },
+                '&:hover .project-image': {
+                    transform: 'scale(1.1)',
+                    filter: 'blur(2px) brightness(30%)',
+                },
+            }}
+        >
+            <Box
+                component="img"
+                src={img}
+                alt="Project"
+                className="project-image"
+                sx={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    transform: 'scale(1)',
+                    transition: 'transform 0.7s ease, filter 0.7s ease',
+                }}
+            />
+            <Box
+                className="overlay-content"
+                sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    borderRadius: '12px',
+                    color: 'white',
+                    padding: {
+                        xs: '1em',
+                        sm: '1em',
+                        md: '2em',
+                    },
+                    boxShadow: 'inset 0 0 20px rgba(0,0,0,0.3)',
+                    transform: 'translateY(100%)',
+                    transition: 'transform 0.7s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    gap: { sm: '0.5em', md: '0.75em' },
+                    pointerEvents: 'auto',
+                    overflow: 'scroll',
+                }}
+            >
+                <Typography
+                    variant="h6"
+                    sx={{ fontWeight: 600, textAlign: 'start' }}
+                >
+                    {title}
+                </Typography>
+                <Typography
+                    variant="subtitle2"
+                    sx={{
+                        color: '#ddd',
+                        fontStyle: 'italic',
+                        textAlign: 'start',
+                    }}
+                >
+                    {organization}
+                </Typography>
+                <Typography
+                    variant="body2"
+                    sx={{
+                        fontWeight: 400,
+                        textAlign: 'start',
+                        lineHeight: 1.5,
                         fontSize: {
-                            xs: '.83em',
-                            sm: '.9em'
+                            xs: '0.7em',
+                            sm: '0.8em',
+                            md: '0.9em',
                         },
-                        fontWeight: '300'
-                    }}>
-                        {description}
-                    </Typography>
+                        textWrap: { sm: 'wrap' },
+                        whiteSpace: 'pre-wrap',
+                        overflow: 'scroll',
+                        color: '#f0f0f0',
+                    }}
+                >
+                    {description}
+                </Typography>
+                {techStack && techStack.length > 0 && (
                     <Box
                         sx={{
-                        gap: '.5em',
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        mt: '1em'
-                    }}>
-                        <a href={`${repoUrl}`} rel="noreferrer" target="_blank">
-
-                            <Button
-                                variant='text'
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            gap: '0.5em',
+                            mt: 1,
+                        }}
+                    >
+                        {techStack.map((tech, idx) => (
+                            <Box
+                                key={idx}
                                 sx={{
-                                ...btnStyles,
-                                padding: '.5em .8em',
-                                color: '#0092ff',
-                                ':hover': {
-                                    color: '#0092ff'
-                                }
-                            }}>
-                                <Typography fontSize='12px'>
-                                    Check Code
-                                </Typography>
-                            </Button>
-                        </a>
-
+                                    fontSize: '0.65rem',
+                                    padding: '0.4em 0.7em',
+                                    backgroundColor: 'rgba(255,255,255,0.15)',
+                                    borderRadius: '16px',
+                                    color: '#fff',
+                                    textTransform: 'capitalize',
+                                    letterSpacing: '0.4px',
+                                    flexShrink: 0,
+                                }}
+                            >
+                                {tech}
+                            </Box>
+                        ))}
                     </Box>
+                )}
+                <Box
+                    sx={{
+                        minWidth: '100%',
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                        mt: 2,
+                    }}
+                >
+                    <a
+                        href={repoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{ textDecoration: 'none' }}
+                    >
+                        <Button
+                            variant="outlined"
+                            sx={{
+                                color: '#00bfff',
+                                borderColor: '#00bfff',
+                                fontSize: '0.8rem',
+                                padding: '0.5em 1.2em',
+                                borderRadius: '8px',
+                                fontWeight: 500,
+                                ':hover': {
+                                    backgroundColor: '#00bfff',
+                                    color: 'white',
+                                },
+                            }}
+                        >
+                            Visit Project
+                        </Button>
+                    </a>
                 </Box>
-
             </Box>
         </Box>
     )

@@ -17,7 +17,7 @@ export const centeredStyles = {
     flexDirection: 'column'
 }
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 
 const perksArray = [{

@@ -1,25 +1,51 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    outDir: ".out",
-    basePath: "/MyPortfolio",
-  reactStrictMode: true,
-  swcMinify: true,
-  images: {
-    domains: [
-      "open.cruip.com",
-      "ucarecdn.com",
-      "www.svgrepo.com",
-      "images.unsplash.com",
-      "res.cloudinary.com",
-      "photos.app.goo.gl",
-      "i.ibb.co",
-    ],
-  },
-  webpack(config) {
-    config.module.rules.push({ test: /\.svg$/, use: ["@svgr/webpack"] });
+    basePath: '',
+    reactStrictMode: true,
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'open.cruip.com',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.unsplash.com',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'ucarecdn.com',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'www.svgrepo.com',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'photos.app.goo.gl',
+                pathname: '**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'i.ibb.co',
+                pathname: '**',
+            },
+        ],
+    },
+    webpack(config) {
+        config.module.rules.push({ test: /\.svg$/, use: ['@svgr/webpack'] })
 
-    return config;
-  },
-};
+        return config
+    },
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

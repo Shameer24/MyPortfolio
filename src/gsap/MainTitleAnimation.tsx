@@ -12,11 +12,11 @@ const MainTitleAnimation = (t1:string,t2:string) => {
         }
     })
     gsap.to(t2, {
-        delay:'.1',
-        duration: '.6',
-        y: '0',
-        fontWeight : 500,
-        opacity: 1,
+        delay:'.2',
+        duration: '.7',
+        y: '15px',
+        fontWeight : 300,
+        opacity: 0.9,
         color : "#DED9E2",
         scrollTrigger: {
             trigger: t2,

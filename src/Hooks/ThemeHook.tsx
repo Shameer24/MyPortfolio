@@ -12,7 +12,7 @@ const ThemeHook = (mode : 'light' | 'dark',setMode :  Dispatch<SetStateAction<"l
     : '#ffffff'
     const getDesignTokens = (mode : PaletteMode) => ({
         typography: {
-            "fontFamily": `'Montserrat', sans-serif`,
+            fontFamily: 'Inter, sans-serif',
             "fontSize": 16,
             h1: {
                 color
@@ -48,7 +48,7 @@ const ThemeHook = (mode : 'light' | 'dark',setMode :  Dispatch<SetStateAction<"l
 
                     // palette values for light mode
 
-                    divider: '#d6d6d6',
+                    divider: '#000',
                     Drawer: '#ffffff',
 
                     background: {
@@ -62,7 +62,7 @@ const ThemeHook = (mode : 'light' | 'dark',setMode :  Dispatch<SetStateAction<"l
                 : {
                      
                     // palette values for dark mode
-                  divider: '#353535',
+                  divider: '#000',
                     background: {
                         default: '#232323'
                     },

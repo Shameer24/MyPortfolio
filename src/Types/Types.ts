@@ -12,10 +12,9 @@ export interface ILayout {
   title: string;
   children: any;
   desc?: string;
-  navbarSx?: any;
 }
 export interface INavbar {
-  navbarSx?: any;
+  isOpen : boolean;
   toggleDrawer: (state?: boolean) => void;
 }
 export interface IInput {
@@ -24,6 +23,7 @@ export interface IInput {
   name: string;
   label: string;
   type?: string;
+  required? : boolean;
 }
 export interface IContactBox {
   t1: string;
@@ -41,6 +41,13 @@ export interface IToolCard {
   src: string;
   className?: string;
   filter?: boolean;
+  index?: number;
+}
+export interface ToolContainer {
+  className?: string;
+  index?: number;
+  label: string;
+  data: IToolCard[];
 }
 export interface ISocialMedia extends IToolCard {
   svg : string,
@@ -53,7 +60,7 @@ export interface IDrawerItem {
     muiName: string;
   };
   isToggleTheme?: boolean;
-  url: string;
+  id: string;
   toggleDrawer: (state?: boolean) => void;
 }
 export interface IProjects {
@@ -61,6 +68,9 @@ export interface IProjects {
   title: string;
   repoUrl: string;
   description: string;
+  organization?: string;
+  siteUrl?: string;
+  techStack?: string[];
 }
 export interface IProjectCard extends IProjects {
   isReversed?: boolean;

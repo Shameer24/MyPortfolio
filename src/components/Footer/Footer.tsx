@@ -164,7 +164,7 @@ function Footer() {
                         <Typography variant="body2">
                             mohamedshameer2406@gmail.com
                         </Typography>
-                        <Typography variant="body2">Harrison, NJ</Typography>
+                        <Typography variant="body2">New York, NY</Typography>
                         <Typography variant="body2">
                             +1 (862)-231-1651
                         </Typography>

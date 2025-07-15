@@ -33,6 +33,9 @@ const Projects = ({ projectsArray }: IProjects[] | any) => {
         }, 100)
     }, [])
 
+    const workProjects = projectsArray?.filter((project: any) => project.category === 'Work');
+    const academicProjects = projectsArray?.filter((project: any) => project.category === 'Academic');
+
     return (
         <Box
             sx={{
@@ -81,6 +84,7 @@ const Projects = ({ projectsArray }: IProjects[] | any) => {
                                     xs: '0.95em',
                                     sm: '1.05em',
                                     md: '1.15em',
+                                    lg: '1.5em',
                                 },
                                 fontWeight: 400,
                                 color: '#64748b',
@@ -97,16 +101,89 @@ const Projects = ({ projectsArray }: IProjects[] | any) => {
                             textAlign: 'center',
                             margin: '0 auto',
                             width: '100%',
+                            
                             display: 'flex',
                             flexDirection: 'row',
-                            justifyContent: {sm : 'center', md : 'space-between'},
+                            justifyContent: {
+                                sm: 'center',
+                                md: 'space-between',
+                            },
                             flexWrap: 'wrap',
                             gap: '1em',
                             mt: '2em',
                         }}
                     >
-                        {projectsArray ? (
-                            projectsArray.map((project: any, index: number) => {
+                        {workProjects ? (
+                            workProjects.map((project: any, index: number) => {
+                                return (
+                                    <ProjectCard
+                                        className={`p${index}`}
+                                        isReversed={
+                                            index % 2 === 0 ? true : false
+                                        }
+                                        repoUrl={project.repoUrl}
+                                        title={project.title}
+                                        img={project.img?.url}
+                                        description={project.description}
+                                        key={project.title}
+                                        organization={project.organization}
+                                        techStack={project.techStack}
+                                    />
+                                )
+                            })
+                        ) : (
+                            <Typography
+                                variant="h1"
+                                fontSize="1em"
+                                fontWeight="500"
+                                color="red"
+                            >
+                                There was an error loading the projects.
+                            </Typography>
+                        )}
+                    </Box>
+                    <Grid item sx={centeredStyles}>    
+                        <Typography
+                            className="title4 t25o0"
+                            variant="body1"
+                            component="p"
+                            sx={{
+                                fontSize: {
+                                    xs: '0.95em',
+                                    sm: '1.05em',
+                                    md: '1.15em',
+                                    lg: '1.5em',
+                                },
+                                fontWeight: 400,
+                                color: '#64748b',
+                                mt: 4,
+                                mb: 2,
+                                lineHeight: 1.5,
+                                wordSpacing : '0.1em',
+                            }}
+                        >
+                            Some of my Academic Work
+                        </Typography>
+                    </Grid>
+                    <Box
+                        sx={{
+                            alignItems: 'center',
+                            textAlign: 'center',
+                            margin: '0 auto',
+                            width: '100%',
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: {
+                                sm: 'center',
+                                md: 'space-between',
+                            },
+                            flexWrap: 'wrap',
+                            gap: '1em',
+                            mt: '2em',
+                        }}
+                    >
+                        {academicProjects ? (
+                            academicProjects.map((project: any, index: number) => {
                                 return (
                                     <ProjectCard
                                         className={`p${index}`}

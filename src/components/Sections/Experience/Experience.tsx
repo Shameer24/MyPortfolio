@@ -19,7 +19,7 @@ interface Experience {
     company: string
     role: string
     date: string
-    description: string
+    description: string[]
     tech: string[]
     logo?: string
 }
@@ -29,41 +29,77 @@ const experiences: Experience[] = [
         id: 'nagy',
         company: 'Nagy Ventures',
         role: 'Full Stack Developer Apprentice',
-        date: 'Feb 2025 - May 2025',
-        description:
-            'Engineered a prompt generation API to dynamically merge user logos with holiday data for AI-driven image creation. Designed responsive frontend flows and animations using ReactJS and react-spring. Integrated backend APIs with Hugging Face models. Collaborated in a fast-paced startup to optimize both UI and backend performance.',
-        tech: ['ReactJS', 'React-Spring', 'Node.js', 'Hugging Face'],
-        logo: '/logos/nagy.png',
+        date: 'Jan 2025 - May 2025',
+        description: [
+            'Developed Logo365 SaaS platform using Next.js, NodeJs, React, & PostgreSQL to expedite MVP delivery from inception to launch.',
+            'Revolutionized AI model performance through advanced prompt engineering techniques, achieving a 40% enhancement in generation accuracy',
+            'Used React and react-spring to create advanced animations and modern UI components across the app',
+        ],
+        tech: [
+            'React',
+            'ElysiaJs',
+            'PostgreSQL',
+            'React-Spring',
+            'Hugging Face',
+            'TypeScript',
+            'tailwindcss',
+            'Swagger',
+            'Drizzle ORM',
+            'Next.js',
+            'Git',
+            'GitHub',
+        ],
     },
     {
         id: 'njit',
         company: 'New Jersey Institute of Technology',
         role: 'Graduate Teaching Assistant',
         date: 'Sep 2024 - May 2025',
-        description:
-            'Graded assignments and assisted 70+ graduate students in CS434 and CS632. Strengthened expertise in relational and NoSQL databases including PL/SQL with Oracle and MongoDB.',
-        tech: ['PL/SQL', 'Oracle', 'MongoDB'],
-        logo: '/logos/njit.png',
+        description: [
+            'Guided 70+ students in CS434 & CS632, focusing on database normalization, indexing, and triggers.',
+            'Worked with PL/SQL, Oracle, and MongoDB to strengthen backend and NoSQL instructional support.',
+        ],
+        tech: ['PL/SQL', 'Oracle', 'MongoDB', 'SQL'],
     },
     {
         id: 'visai',
         company: 'VisAI Labs',
         role: 'Full Stack Developer',
         date: 'Jan 2023 - Jul 2023',
-        description:
-            'Developed a Wi-Fi setup module on Raspberry Pi using ReactJS and wpa-supplicant. Migrated legacy frontend to TypeScript, reducing bugs by 35%. Integrated EAP/PEAP protocols for network security. Resolved 50+ SonarQube issues and documented Raspberry Pi workflows for onboarding.',
-        tech: ['ReactJS', 'TypeScript', 'SonarQube', 'Raspberry Pi'],
-        logo: '/logos/visai.png',
+        description: [
+            'Developed Wi-Fi setup module on Raspberry Pi using ReactJS and wpa-supplicant improving device onboarding connectivity by 40%.',
+            'Migrated the legacy frontend codebase from JavaScript to TypeScript, enforcing static typing & decreasing production bugs by 35%.',
+            'Integrated EAP/PEAP security, resolved 80% of SonarQube issues, and devloped UI components for better user experience.',
+        ],
+        tech: [
+            'ReactJS',
+            'ExpressJS',
+            'TypeScript',
+            'JavaScript',
+            'MySQL',
+            'SonarQube',
+            'Material UI',
+            'Raspberry Pi',
+            'AWS',
+            'Postman',
+            'Docker',
+            'wpa-supplicant',
+            'Jira',
+            'Git',
+            'Bitbucket',
+            'AWS'
+        ],
     },
     {
         id: 'tequip',
         company: 'Tequip Software Solutions',
         role: 'Android App Developer Intern',
         date: 'Apr 2022 - Jul 2022',
-        description:
-            'Built a real-time crypto tracking app for 2000+ coins on Android. Released a wallpaper app using Pexels API with responsive UI, boosting user engagement and retention.',
-        tech: ['Android', 'Java', 'Pexels API'],
-        logo: '/logos/tequip.png',
+        description: [
+            'Developed Android crypto tracker for 2000+ coins with real-time alerts, charts & filters.',
+            'Built wallpaper app with Pexels API, enhancing UI engagement and app retention.',
+        ],
+        tech: ['Java', 'Android', 'Pexels API', 'Android Studio', 'UI Design'],
     },
 ]
 
@@ -81,14 +117,20 @@ const educationEntries: EducationEntry[] = [
         degree: 'Master of Science',
         major: 'Computer Science',
         year: '2023 - 2025',
-        achievements: ['GPA: 3.65', 'Member of Coding Club'],
+        achievements: [
+            'GPA: 3.65',
+            'Relevant Coursework: Cloud Computing, Advance Database Systems & Designs, Data Analytics with R, Machine Learning, Web Development',
+        ],
     },
     {
         institution: 'St. Joseph’s College of Engineering',
         degree: 'Bachelor of Engineering',
         major: 'Computer Science and Engineering',
         year: '2019 - 2023',
-        achievements: ['GPA: 8.86 / 10', 'Science Olympiad Winner'],
+        achievements: [
+            'GPA: 8.86 / 10',
+            'Relevant Coursework: Data Structures & Algorithms, Object Oriented Programming, Operating Systems, Computer Architecture',
+        ],
     },
 ]
 
@@ -157,17 +199,26 @@ export default function ExperienceSection() {
             >
                 {exp.date}
             </Typography>
-            <Typography
-                variant="body2"
-                sx={{
-                    color: '#cccccc',
-                    mb: 2,
-                    lineHeight: 1.5,
-                    fontSize: { xs: '0.9rem', sm: '0.9rem', md: '0.9rem' },
-                }}
-            >
-                {exp.description}
-            </Typography>
+            <Box component="ul" sx={{ pl: 2, mb: 2 }}>
+                {exp.description.map((point, idx) => (
+                    <li key={idx}>
+                        <Typography
+                            variant="body2"
+                            sx={{
+                                color: '#cccccc',
+                                lineHeight: 1.5,
+                                fontSize: {
+                                    xs: '0.9rem',
+                                    sm: '0.9rem',
+                                    md: '0.9rem',
+                                },
+                            }}
+                        >
+                            {point}
+                        </Typography>
+                    </li>
+                ))}
+            </Box>
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                 {exp.tech.map((t) => (
                     <Chip

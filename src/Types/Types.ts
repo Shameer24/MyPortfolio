@@ -71,6 +71,7 @@ export interface IProjects {
   organization?: string;
   siteUrl?: string;
   techStack?: string[];
+  category?: string;
 }
 export interface IProjectCard extends IProjects {
   isReversed?: boolean;

@@ -48,7 +48,7 @@ const ProjectCard = ({
                     left: 0,
                     width: '100%',
                     height: '100%',
-                    objectFit: 'cover',
+                    objectFit: 'fill',
                     transform: 'scale(1)',
                     transition: 'transform 0.7s ease, filter 0.7s ease',
                 }}

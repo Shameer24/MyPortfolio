@@ -89,22 +89,18 @@ export async function getStaticProps() {
         )
     }
     try {
-        // first, grab our Contentful keys from the .env file
         const space = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID
         const accessToken = process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
 
-        // then, send a request to Contentful (using the same URL from GraphiQL)
         const res = await fetch(
             `https://graphql.contentful.com/content/v1/spaces/${space}`,
             {
-                method: 'POST', // GraphQL *always* uses POST requests!
+                method: 'POST',
                 headers: {
                     'content-type': 'application/json',
-                    authorization: `Bearer ${accessToken}`, // add our access token header
+                    authorization: `Bearer ${accessToken}`, 
                 },
-                // send the query we wrote in GraphiQL as a string
                 body: JSON.stringify({
-                    // all requests start with "query: ", so we'll stringify that for convenience
                     query: `
                 {
                   projectCollection {
@@ -135,10 +131,8 @@ export async function getStaticProps() {
             }
         )
 
-        // grab the data from our response
         const { data } = await res.json()
         console.log(data)
-        // const data :any = {}
         if (!data || data?.length < 1) {
             throw 'Error fetching data'
         }

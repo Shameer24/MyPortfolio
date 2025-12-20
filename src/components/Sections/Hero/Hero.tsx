@@ -42,11 +42,11 @@ const Hero = () => {
                 },
             })
 
-            tl.to(['.hero-intro', '.mainBox'], { opacity: 0, y: '-100vh' }, 0)
+            tl.to(['.hero-intro', '.mainBox'], { opacity: 0, zIndex: 5, y: '-100vh' }, 0)
                 .fromTo(
                     '.about-intro',
-                    { opacity: 0 },
-                    { opacity: 1, duration: 0.3, ease: 'power2.out' },
+                    { opacity: 0, zIndex: 1 },
+                    { opacity: 1, zIndex: 10, duration: 0.3, ease: 'power2.out' },
                     0
                 )
                 .fromTo(
@@ -82,11 +82,11 @@ const Hero = () => {
                 },
             })
 
-            tl.to('.hero-intro', { opacity: 0, y: '-100vh' }, 0)
+            tl.to('.hero-intro', { opacity: 0, zIndex: 5, y: '-100vh' }, 0)
                 .fromTo(
                     '.about-intro',
-                    { opacity: 0 },
-                    { opacity: 1, duration: 0.3, ease: 'power2.out' },
+                    { opacity: 0, zIndex: 1 },
+                    { opacity: 1, zIndex: 10, duration: 0.3, ease: 'power2.out' },
                     0
                 )
                 .fromTo(
@@ -208,7 +208,7 @@ const Hero = () => {
                             justifyContent: 'flex-start',
                             pl: { xs: '0.3em', sm: '2em', md: '3em' },
                             pt: { xs: '4em', sm: '0em' },
-                            zIndex: 1,
+                            zIndex: 5,
                         }}
                     >
                         <Grid
@@ -367,7 +367,7 @@ const Hero = () => {
                                                 </Typography>
                                             </Button>
                                             <a
-                                                href={`https://drive.google.com/file/d/1cirgDDtkF_7YOBdxX5rKzDt4cXK1wsja/view?usp=sharing`}
+                                                href={`https://drive.google.com/file/d/1C5FcW09A9t7FxBm8GL1VewXfx8xFtDnL/view?usp=sharing`}
                                                 rel="noreferrer"
                                                 target="_blank"
                                             >

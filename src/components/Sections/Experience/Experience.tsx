@@ -28,10 +28,35 @@ const experiences: Experience[] = [
     {
         id: 'nagy',
         company: 'Nagy Ventures',
+        role: 'Software Development Engineer',
+        date: 'May 2025 - Present',
+        description: [
+            'Leading the evolution of Logo365.ai, enabling dynamic logo generation for client brands using Stable Diffusion, LoRA, and multilingual prompts.',
+            'Currently prototyping LoRA fine-tuning and color palette conditioning for brand-personalized outputs (e.g., mascots, sketch styles, cultural themes)',
+            'Mentored 5 NJIT Capstone developers in Git workflows, modular design, and backend debugging, helping ship multiple features on time.',
+        ],
+        tech: [
+            'React',
+            'ElysiaJs',
+            'PostgreSQL',
+            'React-Spring',
+            'Hugging Face',
+            'TypeScript',
+            'tailwindcss',
+            'Swagger',
+            'Drizzle ORM',
+            'Next.js',
+            'Git',
+            'GitHub',
+        ],
+    },
+    {
+        id: 'nagy',
+        company: 'Nagy Ventures',
         role: 'Full Stack Developer Apprentice',
         date: 'Jan 2025 - May 2025',
         description: [
-            'Developed Logo365 SaaS platform using Next.js, NodeJs, React, & PostgreSQL to expedite MVP delivery from inception to launch.',
+            'Developed Logo365 SaaS platform using React, Bun & PostgreSQL to expedite MVP delivery from inception to launch.',
             'Revolutionized AI model performance through advanced prompt engineering techniques, achieving a 40% enhancement in generation accuracy',
             'Used React and react-spring to create advanced animations and modern UI components across the app',
         ],
@@ -87,7 +112,7 @@ const experiences: Experience[] = [
             'Jira',
             'Git',
             'Bitbucket',
-            'AWS'
+            'AWS',
         ],
     },
     {

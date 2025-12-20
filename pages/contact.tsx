@@ -174,7 +174,7 @@ const ContactSection = () => {
                             lineHeight: 1.2,
                         }}
                     >
-                        Lets connect and create something great
+                        Let&apos;s connect and create something great
                     </Typography>
                     <Typography
                         variant="body1"
@@ -188,7 +188,7 @@ const ContactSection = () => {
                         }}
                     >
                         Whether you have a project, a question, or just want to
-                        say hi — Im here and ready to chat.
+                        say hi — I&apos;m here and ready to chat.
                     </Typography>
                 </Box>
 
@@ -466,7 +466,7 @@ const ContactSection = () => {
                         >
                             <TextField
                                 name="user_name"
-                                label="Name *"
+                                label="Name"
                                 variant="outlined"
                                 fullWidth
                                 required
@@ -481,7 +481,7 @@ const ContactSection = () => {
 
                         <TextField
                             name="user_email"
-                            label="Email *"
+                            label="Email"
                             variant="outlined"
                             type="email"
                             fullWidth
@@ -492,7 +492,7 @@ const ContactSection = () => {
 
                         <TextField
                             name="message"
-                            label="Message *"
+                            label="Message"
                             variant="outlined"
                             multiline
                             rows={4}
